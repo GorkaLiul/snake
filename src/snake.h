@@ -1,3 +1,4 @@
+// abiadura definitzea falta zen* konpondu dut -Aiert <3 
 #define ESC 27
 #define WALL '#'
 

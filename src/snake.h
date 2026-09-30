@@ -8,6 +8,7 @@
 
 #define FRAMERATE 16 //ms-tan adierazita dago. 16ms -> 60fps
 #define SPEED 150
+#define SPEED_INC 2
 // Define keys
 
 #define UP 119 // Define UP constant (w: 119)
@@ -75,3 +76,6 @@ void draw_apple();
 void create_apple (); 
 void reposition_apple(); 
 void revalue_apple();
+
+void collision_apple(struct snake *body);
+void grow_snake(struct  snake *body);

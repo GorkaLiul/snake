@@ -1,3 +1,7 @@
+//  June kodea bukatu mese >;v
+//  June kodea bukatu mese >;v
+//  June kodea bukatu mese >;v
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -5,6 +9,8 @@
 #include <termios.h> //terminaleko interfaze orokorra. IO, asinkronoa...
 
 #include "snake.h"
+
+
 
 // Hemen honetan snake.h fitxategian agertzen diren funtzio eta egituren inplementazioa dago
 // Snake.h-n deklaratzen dira fitxategi ezberdinetan funtzio berdinak erabili ahal izateko.

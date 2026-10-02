@@ -1,7 +1,16 @@
 # snake
 
-#Instalazio pautak: 
+# Instalazio pautak: 
+## Instalazioa soilik: 
+### Terminalean: 
+```
+git clone git@github.com:GorkaLiul/snake.git 
+cd snake
+rm -rf .git
+```
 
-Terminalean: 
-
-git clone 
+## Instalazioa (Garatzaileentzako)
+```
+git clone git@github.com:GorkaLiul/snake.git
+```
+## 

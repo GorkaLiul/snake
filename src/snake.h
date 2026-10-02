@@ -79,3 +79,6 @@ void revalue_apple();
 
 void collision_apple(struct snake *body);
 void grow_snake(struct  snake *body);
+
+// Check the collision of the snake with the wall
+int collision_snake_wall(struct snake *body);

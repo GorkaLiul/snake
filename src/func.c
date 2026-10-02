@@ -252,3 +252,13 @@ void grow_snake(struct snake *body)
 		body->next->next = NULL;								   // Set the next element to NULL
 	}
 }
+
+// Check the collision of the snake with the wall
+int collision_snake_wall(struct snake *body)
+{
+	// Check the collision with the wall
+	return (body->X == X_BOUND ||
+			body->X == X_BOUND + WIDTH + 1 ||
+			body->Y == Y_BOUND ||
+			body->Y == Y_BOUND + HEIGHT + 1);
+}

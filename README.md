@@ -1,6 +1,6 @@
 # snake
 
-# Instalazio pautak: 
+# Instalazio gida: 
 ## Instalazioa soilik: 
 ### Terminalean: 
 ```

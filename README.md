@@ -4,7 +4,7 @@
 ## Instalazioa soilik: 
 ### Terminalean: 
 ```
-git@github.com:GorkaLiul/snake.git
+git clone git@github.com:GorkaLiul/snake.git
 cd snake
 rm -rf .git
 make
@@ -12,6 +12,6 @@ make
 
 ## Instalazioa (Garatzaileentzako)
 ```
-git@github.com:GorkaLiul/snake.git
+git clone git@github.com:GorkaLiul/snake.git
 ```
 ## 

@@ -39,6 +39,7 @@ void main()
 
 		move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
 		collision_apple(Snake);
+		game_over = collision_snake_wall(Snake);
 			
 	}
 }

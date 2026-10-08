@@ -11,6 +11,7 @@ int current_speed = SPEED;
 void main()
 {
 
+	changemode(1);
 	game_over = 0;
 	int dir[2] = {0, -1}; // {x,y} Snake direction (up)
 
@@ -23,6 +24,7 @@ void main()
 	draw_snake(Snake);
 
 	draw_apple();
+
 	while (!game_over)
 	{
 		// todo
@@ -32,14 +34,14 @@ void main()
 		draw_apple();
 		if (speed_control())
 		{
-
+			
+			move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
 			collision_apple(Snake);
-			T = 0; // reset time
-		}
 
-		move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
 		collision_apple(Snake);
 		game_over = collision_snake_wall(Snake);
+			T = 0; // reset time
+		}
 			
 	}
 }

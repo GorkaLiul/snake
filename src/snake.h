@@ -1,14 +1,14 @@
 #define ESC 27
 #define WALL '#'
 
-#define  HEIGHT 60
+#define  HEIGHT 20
 #define  WIDTH 60 
 #define  X_BOUND 3
 #define  Y_BOUND 3
 
-#define FRAMERATE 16 //ms-tan adierazita dago. 16ms -> 60fps
-#define SPEED 150
-#define SPEED_INC 2
+#define FRAMERATE 1 //ms-tan adierazita dago. 16ms -> 60fps
+#define SPEED 100 
+#define SPEED_INC 3
 // Define keys
 
 #define UP 119 // Define UP constant (w: 119)
@@ -57,7 +57,7 @@ void clear_screen();
 void goto_xy(int x, int y );
 void draw_scenery();
 
-void change_mode(int);
+void changemode(int);
 int speed_control(); //abiadura aldatu
 		     //
 //funtzioak (teklatuko sarrera, mugimendua...)

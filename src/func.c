@@ -166,7 +166,7 @@ int input_control(struct snake *body, int dir[2])
 			{
 				dir[0] = 0;				 // Set the x direction to 0
 				dir[1] = 1;				 // Set the y direction to 1
-				body->APPEARANCE = DOWN; // Set the snake head direction
+				body->APPEARANCE = HEAD_DOWN; // Set the snake head direction
 			}
 			break;
 		case RIGHT: // If the key pressed is RIGHT

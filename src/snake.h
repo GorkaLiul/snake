@@ -3,8 +3,8 @@
 
 extern int WIDTH;
 extern int HEIGHT;
-
-void reduce_dimensions(void);
+extern int urrezko_mugimenduak;
+void reduce_dimensions(int i);
 
 #endif
 
@@ -43,7 +43,7 @@ void reduce_dimensions(void);
 //sagarrak
 #define GOLD_APPLE 5 // 5 puntu
 #define RED_APPLE 1 // 1 puntu
-#define PROB_GOLD 25 // Probabilities of the gold apples
+#define PROB_GOLD 40 // Probabilities of the gold apples
 #define APPLE_BODY 111 // 'o' karakterea
 
 

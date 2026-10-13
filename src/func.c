@@ -29,6 +29,16 @@ draw_snake(Snake);
 draw_apple();
 }
 
+
+void random_walls() {
+
+BLOCK1_X = X_BOUND + 0+ rand() % WIDTH;
+BLOCK1_Y = Y_BOUND + 0+ rand() % HEIGHT;
+
+BLOCK2_X = X_BOUND + 0+ rand() % WIDTH + rand() % HEIGHT;
+BLOCK2_Y = Y_BOUND + 0+ rand() % HEIGHT + rand() % WIDTH;
+}
+
 void clear_screen()
 {
 	system("clear");
@@ -41,6 +51,9 @@ void goto_xy(int x, int y)
 
 void draw_scenery()
 {
+
+
+
 	int i, j;
 	char c;
 	goto_xy(X_BOUND, Y_BOUND); // Move the cursor to the scenery x, y start position
@@ -58,6 +71,12 @@ void draw_scenery()
 		}
 	}
 	printf("\n");
+
+	goto_xy(BLOCK1_X, BLOCK1_Y);
+	printf("%c", WALL);
+	goto_xy(BLOCK2_X, BLOCK2_Y);
+	printf("%c", WALL);
+
 }
 
 void create_snake()
@@ -129,9 +148,17 @@ void create_apple()
 
 void reposition_apple()
 {
-	Apple->X = X_BOUND + 2 + rand() % WIDTH;  // Set the x position of the apple
-	Apple->Y = Y_BOUND + 0 + rand() % HEIGHT; // Set the y position of the apple
+
+
+	do {
+		Apple->X = X_BOUND + 1 + rand() % WIDTH;  //
+		Apple->Y = Y_BOUND + 1 + rand() % HEIGHT; //
+	} while ((Apple->X == BLOCK1_X && Apple->Y == BLOCK1_Y) || 
+	         (Apple->X == BLOCK2_X && Apple->Y == BLOCK2_Y));
+
 }
+
+
 
 void revalue_apple()
 {
@@ -263,6 +290,7 @@ void collision_apple(struct snake *body)
 		else if (Apple -> COLOR == 33){
 			reduce_dimensions(5);
 		} 
+		random_walls();
 		reposition_apple(); // Reposition the apple
 		revalue_apple();	// Set the color and points of the apple
 		draw_apple();
@@ -293,5 +321,8 @@ int collision_snake_wall(struct snake *body)
 	return (body->X == X_BOUND ||
 			body->X == X_BOUND + WIDTH + 1 ||
 			body->Y == Y_BOUND ||
-			body->Y == Y_BOUND + HEIGHT + 1);
+			body->Y == Y_BOUND + HEIGHT + 1) ||
+		(body->X == BLOCK1_X && body->Y == BLOCK1_Y) ||
+			(body->X == BLOCK2_X && body->Y == BLOCK2_Y);
+
 }

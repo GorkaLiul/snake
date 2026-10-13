@@ -3,17 +3,31 @@
 #include <unistd.h>
 #include <time.h>
 #include <termios.h> //terminaleko interfaze orokorra. IO, asinkronoa...
-
 #include "snake.h"
 
 // Hemen honetan snake.h fitxategian agertzen diren funtzio eta egituren inplementazioa dago
 // Snake.h-n deklaratzen dira fitxategi ezberdinetan funtzio berdinak erabili ahal izateko.
 // Snake.h inportatzen den fitxategietan funtzioen inplementazioa inplizituki txertatuko da(func.c-ko inplementazioa)
 
+
 extern struct snake *Snake;
 extern struct apple *Apple;
 extern int T; // Time counter
 extern int current_speed;
+
+void reduce_dimensions(void)
+{
+    if (WIDTH > 10)
+        WIDTH -=  5; 
+
+    if (HEIGHT > 10)
+        HEIGHT-= 5;
+
+    clear_screen();
+draw_scenery();
+draw_snake(Snake);
+draw_apple();
+}
 
 void clear_screen()
 {
@@ -67,7 +81,7 @@ void draw_snake(struct snake *body)
 {
 	printf("%c[1;%dm", ESC, body->COLOR); // Set the color of the snake
 	goto_xy(body->X, body->Y);			  // Move the cursor to the snake x, y position
-	printf("%c\n", body->APPEARANCE);	  // Print the snake part
+	printf("%c", body->APPEARANCE);	  // Print the snake part
 	printf("%c[0m", ESC);				  // Unset the color of the snake
 	if (body->next != NULL)
 	{
@@ -125,7 +139,7 @@ void draw_apple()
 {
 	printf("%c[1;%dm", ESC, Apple->COLOR); // Set the color of the apple
 	goto_xy(Apple->X, Apple->Y);		   // Move the cursor to the apple x, y position
-	printf("%c\n", Apple->APPEARANCE);	   // Print the apple
+	printf("%c", Apple->APPEARANCE);	   // Print the apple
 	printf("%c[0m", ESC);				   // Unset the color of the apple body
 }
 
@@ -231,8 +245,10 @@ void collision_apple(struct snake *body)
 				current_speed -= SPEED_INC; // Decrease the speed by SPEED_INC
 			}
 		}
+		reduce_dimensions();
 		reposition_apple(); // Reposition the apple
 		revalue_apple();	// Set the color and points of the apple
+		draw_apple();
 	}
 }
 

@@ -1,12 +1,14 @@
 #include "snake.h"
 
-int game_over;
 
+int WIDTH = 60; 
+int HEIGHT = 60;
+int game_over;
 struct snake *Snake;
 struct apple *Apple;
-
 int T = 0; // Time counter
 int current_speed = SPEED;
+
 
 void main()
 {
@@ -38,7 +40,8 @@ void main()
 			move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
 			collision_apple(Snake);
 
-		collision_apple(Snake);
+//		collision_apple(Snake);
+		
 		game_over = collision_snake_wall(Snake);
 			T = 0; // reset time
 		}

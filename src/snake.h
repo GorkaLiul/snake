@@ -5,8 +5,17 @@ extern int WIDTH;
 extern int HEIGHT;
 extern int urrezko_mugimenduak;
 void reduce_dimensions(int i);
+void random_walls();
+
+extern int BLOCK1_X;
+extern  int BLOCK1_Y ;
+
+extern int BLOCK2_X ;
+extern int BLOCK2_Y;
 
 #endif
+
+
 
 
 

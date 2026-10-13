@@ -1,13 +1,19 @@
 #include "snake.h"
 
 
-int WIDTH = 60; 
-int HEIGHT = 60;
+int WIDTH = 40; 
+int HEIGHT = 40;
 int game_over;
 struct snake *Snake;
 struct apple *Apple;
 int T = 0; // Time counter
 int current_speed = SPEED;
+
+
+int BLOCK1_X = 20;
+int BLOCK1_Y = 10;
+int BLOCK2_X = 30;
+int BLOCK2_Y = 15;
 
 int urrezko_mugimenduak = 0; // “urrezko” bezala geratzen diren mugimenduak
 
@@ -15,6 +21,7 @@ int urrezko_mugimenduak = 0; // “urrezko” bezala geratzen diren mugimenduak
 
 void main()
 {
+
 
 	changemode(1);
 	game_over = 0;

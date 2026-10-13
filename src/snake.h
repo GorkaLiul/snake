@@ -1,10 +1,26 @@
+#ifndef SNAKE_H
+#define SNAKE_H
+
+extern int WIDTH;
+extern int HEIGHT;
+
+void reduce_dimensions(void);
+
+#endif
+
+
+
+
+
 #define ESC 27
 #define WALL '#'
 
-#define  HEIGHT 20
-#define  WIDTH 60 
-#define  X_BOUND 3
-#define  Y_BOUND 3
+//#define  HEIGHT 20
+//#define  WIDTH 60 
+
+
+#define  X_BOUND 0
+#define  Y_BOUND 0
 
 #define FRAMERATE 1 //ms-tan adierazita dago. 16ms -> 60fps
 #define SPEED 100 

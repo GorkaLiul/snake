@@ -15,13 +15,13 @@ extern struct apple *Apple;
 extern int T; // Time counter
 extern int current_speed;
 
-void reduce_dimensions(void)
+void reduce_dimensions(int i)
 {
     if (WIDTH > 10)
-        WIDTH -=  5; 
+        WIDTH +=  i; 
 
     if (HEIGHT > 10)
-        HEIGHT-= 5;
+        HEIGHT += i;
 
     clear_screen();
 draw_scenery();
@@ -79,6 +79,18 @@ void create_snake()
 
 void draw_snake(struct snake *body)
 {
+
+
+int color;
+
+if (urrezko_mugimenduak > 0) 
+	color = 33; //Urre kolorea
+
+else 
+	color = 32;
+
+body-> COLOR = color;	
+ 
 	printf("%c[1;%dm", ESC, body->COLOR); // Set the color of the snake
 	goto_xy(body->X, body->Y);			  // Move the cursor to the snake x, y position
 	printf("%c", body->APPEARANCE);	  // Print the snake part
@@ -117,8 +129,8 @@ void create_apple()
 
 void reposition_apple()
 {
-	Apple->X = X_BOUND + 1 + rand() % WIDTH;  // Set the x position of the apple
-	Apple->Y = Y_BOUND + 1 + rand() % HEIGHT; // Set the y position of the apple
+	Apple->X = X_BOUND + 2 + rand() % WIDTH;  // Set the x position of the apple
+	Apple->Y = Y_BOUND + 0 + rand() % HEIGHT; // Set the y position of the apple
 }
 
 void revalue_apple()
@@ -245,7 +257,12 @@ void collision_apple(struct snake *body)
 				current_speed -= SPEED_INC; // Decrease the speed by SPEED_INC
 			}
 		}
-		reduce_dimensions();
+		if (Apple-> COLOR ==31 ) {
+			reduce_dimensions(-1);
+		}
+		else if (Apple -> COLOR == 33){
+			reduce_dimensions(5);
+		} 
 		reposition_apple(); // Reposition the apple
 		revalue_apple();	// Set the color and points of the apple
 		draw_apple();

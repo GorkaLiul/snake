@@ -9,6 +9,9 @@ struct apple *Apple;
 int T = 0; // Time counter
 int current_speed = SPEED;
 
+int urrezko_mugimenduak = 0; // “urrezko” bezala geratzen diren mugimenduak
+
+
 
 void main()
 {
@@ -34,17 +37,32 @@ void main()
 		input_control(Snake, dir); // Input control
 		draw_snake(Snake);		   // Draw the snake
 		draw_apple();
+
+		if (Apple->COLOR == 33) {
+			urrezko_mugimenduak = 10;
+			
+		}
+
+
 		if (speed_control())
 		{
-			
-			move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
-			collision_apple(Snake);
 
-//		collision_apple(Snake);
-		
-		game_over = collision_snake_wall(Snake);
+			if (urrezko_mugimenduak > 0) {
+				urrezko_mugimenduak--;
+			}
+
+
+			collision_apple(Snake);
+			move_snake(Snake->X + dir[0], Snake->Y + dir[1], Snake);
+
+			//
+			//		collision_apple(Snake);
+
+			game_over = collision_snake_wall(Snake);
 			T = 0; // reset time
 		}
-			
+
+
+
 	}
 }
